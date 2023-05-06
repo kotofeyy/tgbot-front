@@ -14,32 +14,3 @@ body {
   color: var(--tg-theme-text-color);
   position: relative;
 }
-.content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  padding: 10px;
-  background-color: var(--tg-theme-bg-color);
-  height:  calc(100vh - 40px);
-  /* width: 100%;  */
-  border-radius: 8px;
-
-}
-.name {
-  text-align: center;
-}
-.desc {
-  text-align: center;
-  color: var(--tg-theme-hint-color);
-}
-.bt {
-width: 100%;
-  border-radius: 8px;
-  font-size: 14px;
-  padding: 20px;
-  background-color: var(--tg-theme-button-color);
-  color: var(--tg-theme-button-text-color);
-  outline: none;
-  border: none;
-}
