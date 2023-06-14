@@ -8,8 +8,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: calc(100% - 10px);
-  width: calc(100% - 10px); */
   padding: 10px;
   color: var(--tg-theme-text-color);
   position: relative;

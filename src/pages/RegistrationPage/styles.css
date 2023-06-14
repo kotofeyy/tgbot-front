@@ -1,0 +1,21 @@
+.reg-content {
+    padding: 10px;
+    background-color: var(--tg-theme-bg-color);
+    height:  calc(100vh - 40px);
+    width: calc(100vw - 40px);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.header {
+    height: 56px;
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
