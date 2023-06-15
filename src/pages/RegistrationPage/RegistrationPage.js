@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { RegistrationContainer } from "./RegistrationContainer";
 import "./styles.css";
+import { Button } from "../../components/Button/Button";
+import { cities } from "../../utils/cities";
 
 export const RegistrationPage = () => {
   const navigate = useNavigate();
@@ -8,7 +11,7 @@ export const RegistrationPage = () => {
   const [age, setAge] = useState("");
   const [name, setName] = useState("");
   const [city, setCity] = useState("");
-  const [stepRegistration, setStepRegistration] = useState(1);
+  const [stepRegistration, setStepRegistration] = useState(0);
   const headerOptions = ["Возраст", "Имя", "Город"];
   const ageOptions = [
     { value: "", label: "Выберите возраст" },
@@ -20,21 +23,17 @@ export const RegistrationPage = () => {
     { value: "51-60", label: "51-60 лет" },
     { value: "61+", label: "61 и более лет" },
   ];
-  const cities = [
-    { value: "moscow", label: "Москва" },
-    { value: "spb", label: "Санкт-Петербург" },
-    { value: "ekb", label: "Екатеринбург" },
-    // и т.д.
-  ];
   const handleNextStep = () => setStepRegistration((step) => step + 1);
   const handleBacktStep = () => setStepRegistration((step) => step + 1);
+
+  const handleCompletionRegistration = () => navigate("/meow");
+
   return (
     <div className="reg-content">
       <div className="content">
-        <header className="header">
-          {headerOptions[stepRegistration - 1]}
-        </header>
-        {stepRegistration === 1 && (
+        <header className="header">{headerOptions[stepRegistration]}</header>
+
+        <RegistrationContainer index={stepRegistration}>
           <div>
             <select
               value={age}
@@ -52,11 +51,9 @@ export const RegistrationPage = () => {
                 </option>
               ))}
             </select>
-            <button onClick={() => handleNextStep()}>Далее</button>
+            <Button onClick={() => handleNextStep()}>Далее</Button>
           </div>
-        )}
 
-        {stepRegistration === 2 && (
           <div>
             <input
               type="text"
@@ -70,11 +67,9 @@ export const RegistrationPage = () => {
                 borderRadius: "5px",
               }}
             />
-            <button onClick={() => handleNextStep()}>Далее</button>
+            <Button onClick={() => handleNextStep()}>Далее</Button>
           </div>
-        )}
 
-        {stepRegistration === 3 && (
           <div>
             <select
               value={city}
@@ -88,19 +83,15 @@ export const RegistrationPage = () => {
             >
               {cities.map((city) => (
                 <option key={city.value} value={city.value}>
-                  {city.label}
+                  {city.city}
                 </option>
               ))}
             </select>
-            <button
-              onClick={() =>
-                console.log(`Ваш возраст: ${age}, имя: ${name}, город: ${city}`)
-              }
-            >
+            <Button onClick={() => handleCompletionRegistration()}>
               Готово
-            </button>
+            </Button>
           </div>
-        )}
+        </RegistrationContainer>
       </div>
     </div>
   );

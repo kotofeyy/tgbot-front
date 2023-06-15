@@ -1,5 +1,6 @@
 import "./styles.css";
 import love_main from "../../icons/love_main.svg";
+import { Button } from "../../components/Button/Button";
 import { useNavigate } from "react-router-dom";
 
 export const HelloPage = () => {
@@ -17,9 +18,7 @@ export const HelloPage = () => {
         </div>
       </div>
 
-      <button className="bt" onClick={goNext}>
-        Погнали!
-      </button>
+      <Button onClick={goNext}>Погнали!</Button>
     </div>
   );
 };

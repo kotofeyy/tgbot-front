@@ -1,0 +1,10 @@
+.bt {
+    width: 100%;
+    border-radius: 8px;
+    font-size: 14px;
+    padding: 20px;
+    background-color: var(--tg-theme-button-color);
+    color: var(--tg-theme-button-text-color);
+    outline: none;
+    border: none;
+  }
