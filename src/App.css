@@ -11,4 +11,11 @@ body {
   padding: 10px;
   color: var(--tg-theme-text-color);
   position: relative;
+  font-family: "Roboto-Black"; 
 }
+@font-face {
+  font-family: "Roboto-Black"; 
+  src: url("./fonts/Roboto-Black.ttf") format("truetype"); 
+  font-style: normal; 
+  font-weight: normal; 
+  } 

@@ -6,7 +6,7 @@
     padding: 10px;
     background-color: var(--tg-theme-bg-color);
     height:  calc(100vh - 40px);
-    /* width: 100%;  */
+    width: calc(100vw - 40px);
     border-radius: 8px;
   
   }

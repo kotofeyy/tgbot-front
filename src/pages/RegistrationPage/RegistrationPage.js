@@ -30,68 +30,45 @@ export const RegistrationPage = () => {
 
   return (
     <div className="reg-content">
-      <div className="content">
-        <header className="header">{headerOptions[stepRegistration]}</header>
+      <header className="header">Немного о себе</header>
+      <div className="main-content">
+        <div className="reg-inputs">
+          <select
+            className="inputs"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+          >
+            {ageOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
 
-        <RegistrationContainer index={stepRegistration}>
-          <div>
-            <select
-              value={age}
-              onChange={(e) => setAge(e.target.value)}
-              style={{
-                padding: "10px",
-                fontSize: "16px",
-                border: "2px solid #ccc",
-                borderRadius: "5px",
-              }}
-            >
-              {ageOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <Button onClick={() => handleNextStep()}>Далее</Button>
-          </div>
+          <input
+            className="inputs"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Введите ваше имя"
+          />
 
-          <div>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Введите ваше имя"
-              style={{
-                padding: "10px",
-                fontSize: "16px",
-                border: "2px solid #ccc",
-                borderRadius: "5px",
-              }}
-            />
-            <Button onClick={() => handleNextStep()}>Далее</Button>
-          </div>
+          <select
+            className="inputs"
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+          >
+            {cities.map((city) => (
+              <option key={city.value} value={city.value}>
+                {city.city}
+              </option>
+            ))}
+          </select>
 
-          <div>
-            <select
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
-              style={{
-                padding: "10px",
-                fontSize: "16px",
-                border: "2px solid #ccc",
-                borderRadius: "5px",
-              }}
-            >
-              {cities.map((city) => (
-                <option key={city.value} value={city.value}>
-                  {city.city}
-                </option>
-              ))}
-            </select>
-            <Button onClick={() => handleCompletionRegistration()}>
-              Готово
-            </Button>
-          </div>
-        </RegistrationContainer>
+          <Button onClick={() => handleCompletionRegistration()}>
+            Создать аккаунт
+          </Button>
+        </div>
       </div>
     </div>
   );
