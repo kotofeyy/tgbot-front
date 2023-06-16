@@ -29,41 +29,40 @@ export const RegistrationPage = () => {
   const handleCompletionRegistration = () => navigate("/meow");
 
   return (
-    <div className="reg-content">
-      <header className="header">Немного о себе</header>
-      <div className="main-content">
+    <div /*className="reg-content"*/>
+      <div className="content">
+        <header className="header">Немного о себе</header>
         <div className="reg-inputs">
-          <select
-            className="inputs"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          >
-            {ageOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <div className="input-group">
+            <label>Возраст</label>
+            <select value={age} onChange={(e) => setAge(e.target.value)}>
+              {ageOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="input-group">
+            <label>Имя</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Введите ваше имя"
+            />
+          </div>
 
-          <input
-            className="inputs"
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            placeholder="Введите ваше имя"
-          />
-
-          <select
-            className="inputs"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-          >
-            {cities.map((city) => (
-              <option key={city.value} value={city.value}>
-                {city.city}
-              </option>
-            ))}
-          </select>
+          <div className="input-group">
+            <label>Город</label>
+            <select value={city} onChange={(e) => setCity(e.target.value)}>
+              {cities.map((city) => (
+                <option key={city.value} value={city.value}>
+                  {city.city}
+                </option>
+              ))}
+            </select>
+          </div>
 
           <Button onClick={() => handleCompletionRegistration()}>
             Создать аккаунт
